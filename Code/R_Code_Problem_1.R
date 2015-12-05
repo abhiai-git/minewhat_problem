@@ -34,8 +34,11 @@ norm_eucl<- function(m)
   m/apply(m,1,function(x) sum(x^2)^.5)
 
 m_norm<-norm_eucl(m)
-for (i in 1:100) {
+Toss<-c()
+for (i in 1:20) {
   
-  results[i]<-kmeans(m_norm,i,i)
-  
+  results<-kmeans(t(m_norm),i)
+  Toss[i]<-results$betweenss/results$totss
 }
+
+
