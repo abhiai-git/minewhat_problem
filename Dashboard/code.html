@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ABHISHEK BHARDWAJ</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="static/css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="static/css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Abhishek Bhardwaj</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="static/Egorov.jpg" class="img-rounded" alt="Egorov" width="col-xs-36" height="26"> Egorov, Kirill  <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Hi , Egorov, Kirill  </a>
+                        </li>                        
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                   <li class="active">
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Problem & Data</a>
+                    </li>
+                    <li>
+                        <a href="regression.html"><i class="fa fa-fw fa-bar-chart-o"></i> Regression Analysis</a>
+                    </li>
+                    <li>
+                        <a href="code.html"><i class="fa fa-fw fa-edit"></i> Code</a>
+                    </li>
+                    <li>
+                        <a href="about.html"><i class="fa fa-fw  fa-align-justify"></i> About Me</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+ <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Code & Script   <small>R ,Python ,D3, Google Charts , Bootstrap Web Theme</small>
+                        </h1>
+                        
+                            
+                        </ol>
+                    </div>
+                </div>
+                         
+                 
+            
+            <div class="row">
+                <div class="col-lg-12 col-md-4">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-comments fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">Python</div>
+                                    <small>Data Crawling</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i>Data From US Tregeary </h3>
+                        </div>
+                        <div class="panel-body">
+                            
+                                        <code>
+                                            #*********** Importing Libraries<br>
+                                            import requests,csv<br>
+                                            from bs4 import BeautifulSoup<br>
+                                            from collections import defaultdict<br>
+                                            <br>
+                                            <br>#********** Preparing Output File
+                                            output = csv.writer(open("ustre.csv", 'wb'))<br>
+                                            columns = defaultdict(list)<br>
+                                            <br>
+                                            <br>#***********Function to open the url and fetch data
+                                            def getdata(url):<br>
+                                                res=requests.get(url)<br>
+                                                soup=BeautifulSoup(res.text.encode('utf-8'))<br>
+                                                table_content=soup.find_all('td',{'class':'setTableContentCellWidth'})<br>
+                                                for rows in table_content:<br>
+                                                    breaker=rows.find_all('tr')<br>
+                                                    for tag in breaker:<br>
+                                                        value=str(tag)<br>
+                                                        date=value.split(">")[2].split("<")[0].replace("/","-")<br>
+                                                        val=value.split(">")[20].split("<")[0]<br>
+                                                        output.writerow([date,val])<br>
+                                            <br>
+                                            <br>#*********** Setting the Limit to generate urls<br>
+                                            for year in range(2005,2016):<br>
+                                                url='http://www.treasury.gov/resource-center/data-chart-center/interest-rates/<br>Pages/TextView.aspx?data=yieldYear&year='+str(year)<br>
+                                                getdata(url)<br>
+                                                print url<br>
+
+
+                                         </code>       
+
+
+                              
+                        </div>
+                    </div>
+                </div>
+
+                   <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i>Data From Quandl</h3>
+                        </div>
+                        <div class="panel-body">
+                            
+                                        <code>
+                                            #*********** Importing Libraries<br>
+                                            import Quandl<br>
+                                            import csv,random<br>
+                                            from collections import defaultdict<br>
+                                            <br>
+                                            <br>#********** Preparing Output File<br>
+                                            output = csv.writer(open("quandl.csv", 'wb'))<br>
+                                            columns = defaultdict(list)<br>
+                                            output.writerow(["DATE","VALUE"])<br>
+
+                                            <br>#***********Using Qunadle Library To fetch Data
+                                            data = Quandl.get("FRED/USD3MTD156N")<br>
+                                            print data.head()<br>
+                                            for i in range(0,len(data['VALUE'])):<br>
+                                                year= int(str(data.index[i]).split("-")[0])<br>
+                                                if year>=2005:<br>
+                                                    output.writerow([str(data.index[i]).split(" ")[0],data['VALUE'][i]])<br>
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                  
+                                                    <br>
+                                                    <br>
+                                                    <br>
+
+
+
+
+                                         </code>       
+
+
+                              
+                        </div>
+                    </div>
+                </div> 
+
+
+
+
+
+             </div>   
+ 
+                <div class="row">
+                    <div class="col-lg-12 col-md-4">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-comments fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">R Script</div>
+                                        <div>Extract Transform Load , Analytics </div>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i>ETL and Statistical Test</h3>
+                            </div>
+                            <div class="panel-body">
+                             <code><br>
+                                        
+                                    #**********Libraries***************<br>
+                                    library(ggplot2)<br>
+                                    library(lubridate)<br>
+                                    <br>
+                                    #**********Loading Data***************<br>
+                                    setwd("C:/Users/Innovaccer/Desktop/prism/")<br>
+                                    d1=read.csv("quandl.csv")<br>
+                                    d2=read.csv("ustre.csv")<br>
+                                    <br>
+                                    #**********Transforming the Data***************<br>
+                                    d2$X10.yr=as.numeric(d2$X10.yr)<br>
+                                    d1$DATE=as.Date(d1$DATE)<br>
+                                    d2$Date=as.Date(d2$Date,"%m-%d-%y")<br>
+                                    <br>
+                                    #**********Merging The Two Data Set ***************<br>
+                                    m=merge(x=d1,y=d2,by.x ='DATE',by.y = 'Date' ,all = T)<br><br>
+
+                                    #**********Monthly Linear Regression***************<br>
+                                    monthly<-matrix(nrow=10, ncol=12)<br>
+                                    for(j in 0:9){ <br>
+                                      for(i in 1:12){<br>
+                                      m1=m[year(m$DATE)==2005+j & month(m$DATE)==i,]<br>
+                                      fit=lm(data = m1,formula =m1$VALUE~m1$X10.yr,na.action = na.omit)<br>
+                                      monthly[j+1,i]<-fit$coefficients[2]<br>
+                                      }<br>
+                                    }<br>
+                                    colnames(monthly)<-c("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Oct","Nov","Dec")<br>
+                                    rownames(monthly)<-c(2005:2014)<br>
+                                    write.csv(t(monthly),"monthly.csv",row.names = T)<br><br>
+                                    #**********Yearly Linear Regression***************<br>
+                                    yearly<-c()<br>
+                                    for(j in 0:9){ <br>
+                                         m1=m[year(m$DATE)==2005+j,]<br>
+                                        fit=lm(data = m1,formula = m1$VALUE~m1$X10.yr,na.action = na.omit)<br>
+                                        yearly[j+1]<-fit$coefficients[2]<br>
+                                    }<br>
+                                    write.csv(yearly,"yearly.csv",row.names = T)<br>
+                                       <br>                                 
+                                    #**********Analysis on Whole Data  <br>
+                                    fit<-lm(m$X10.yr~m$VALUE,na.action=na.omit)<br>
+                                    plot(x=m[,2],y=m[,3],xlab = "USD 3 month LIBOR  ", ylab = "10 year Treasury yield curve rate ",col="orange", pch = 10, cex = .7, font.lab=2 )<br>
+                                    abline(coef = fit$coefficients,col=2,lwd=2,lty="dashed")<br>
+                                    title(main = "Scatter Plot With Linear Regression Line (Whole Data)")<br>
+
+
+
+
+
+                                        </code>                                       
+                            </div>
+                        </div>
+                    </div>
+                 
+
+
+
+                         <div class="row">
+                    <div class="col-lg-12 col-md-4">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-comments fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">D3</div>
+                                        <div>Visualization</div>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                </div>
+
+               <div class="row">
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i>D3 Code For Line Chart</h3>
+                        </div>
+                        <div class="panel-body">
+                            
+                                        <code>
+                                                nv.addGraph(function() {<br>
+                                                var chart = nv.models.lineChart()<br>
+                                                        // .useInteractiveGuideline(true)<br>
+                                                    .x(function(d) { return d[0]})<br>
+                                                    .y(function(d) { return d[1] })<br>
+                                                    // .color(d3.scale.category10().range())<br>
+                                                        .duration(300)<br>
+                                                    .clipVoronoi(false);<br>
+                                                <br>
+
+                                                  // xAxisTickFormat="xAxisTickFormat_Date_Format()"<br>
+                                               chart.xAxis.tickFormat(function(d) { return d3.time.format('%B')(new Date(2015,d-1,01)); })<br>
+                                                // chart.yAxis.tickFormat(d3.format(',.1'));<br>
+
+
+                                                d3.select('#chart1 svg')<br>
+                                                    .datum(cumulativeTestData())<br>
+                                                    .call(chart);<br>
+                                                return chart;<br>
+                                            });<br>
+
+                                           <br>
+
+                                            function cumulativeTestData() {<br>
+                                                return [
+                                                    
+                                                    {
+                                                        key: "2005",
+                                                        values: [   [1, -90.493352230546],
+                                                                    [2, 153.144562898685],
+                                                                    [3, 130.411741624305],
+                                                                    [4, -295.18376146914],
+                                                                    [5, -189.515538776645],
+                                                                    [6, 9.52691566167599],
+                                                                    [7, 125.357999749927],
+                                                                    [8, -154.886588367988],
+                                                                    [9, 83.0389737999755],
+                                                                    [10, 122.557466506237],
+                                                                    [11, -146.616857388487],
+                                                                    [12, -169.316011369]]
+                                                    },
+                                                    {
+                                                        key: "2006",
+                                                        mean: 125,
+                                                        values: [  [1, 111.586385061927],
+                                                                    [2, 3.72032721457484],
+                                                                    [3, 74.3637331658826],
+                                                                    [4, 155.785334709218],
+                                                                    [5, -99.4094861237249],
+                                                                    [6, 85.6501314305634],
+                                                                    [7, 102.790580074144],
+                                                                    [8, 126.158500114327],
+                                                                    [9, 779.629916666133],
+                                                                    [10, 1918.08016081285],
+                                                                    [11, 1229.95008507585],
+                                                                    [12, 778.512586779782]] 
+                                                    },
+                                                    {
+                                                        key: "2007",
+                                                        values: [   [1, 0],
+                                                                    [2, 1446.22297107568],
+                                                                    [3, 270.803608630557],
+                                                                    [4, 506.149584410813],
+                                                                    [5, 3141.54951522376],
+                                                                    [6, 0],
+                                                                    [7, 7086.10590613295],
+                                                                    [8, -61.5259485219003],
+                                                                    [9, -34.9371278025663],
+                                                                    [10, 74.9158338533912],
+                                                                    [11, -163.485940718168],
+                                                                    [12, -37.8168449148116]]                
+                                                    },
+
+                                                    {
+                                                        key: "2008",
+                                                        values: [    [1, 17.8020267726286],
+                                                                    [2, -106.578520840234],
+                                                                    [3, 45.1954058938545],
+                                                                    [4, 125.66920549459],
+                                                                    [5, -32.1362855913166],
+                                                                    [6, 142.498885789847],
+                                                                    [7, 1255.29794027922],
+                                                                    [8, -1481.31216096751],
+                                                                    [9, 16.2321919867506],
+                                                                    [10, -0.796173904568526],
+                                                                    [11, 84.5595470956302],
+                                                                    [12, 73.9062765589528]]
+                                                    },
+                                                     {
+                                                        key: "2009",
+                                                        values: [   [1, 16.180055167724],
+                                                                    [2, 84.5123495587646],
+                                                                    [3, 206.917096593573],
+                                                                    [4, -188.287516877232],
+                                                                    [5, -94.8834754657162],
+                                                                    [6, 414.802125593715],
+                                                                    [7, -148.685369044815],
+                                                                    [8, 303.767090340763],
+                                                                    [9, -98.8207994034644],
+                                                                    [10, -4973.26756163745],
+                                                                    [11, 1242.3499441131],
+                                                                    [12, -5956.54515745913]]
+                                                                                  
+                                                        
+                                                    },
+                                                      {
+                                                        key: "2010",
+                                                        values: [   [1, 3539.15354359076],
+                                                                    [2, 84.5123495587646],
+                                                                    [3, 206.917096593573],
+                                                                    [4, -188.287516877232],
+                                                                    [5, -94.8834754657162],
+                                                                    [6, 414.802125593715],
+                                                                    [7, -148.685369044815],
+                                                                    [8, 303.767090340763],
+                                                                    [9, -98.8207994034644],
+                                                                    [10, -4973.26756163745],
+                                                                    [11, 1242.3499441131],
+                                                                    [12, -5956.54515745913]]
+                                                        
+                                                    },
+                                                    {
+                                                        key: "2011",
+                                                        values: [[1, 69.5038582914668],
+                                                                [2, 4130.1671064204],
+                                                                [3, -987.161693268556],
+                                                                [4, 462.966537721879],
+                                                                [5, 855.160193059499],
+                                                                [6, -195.474316064652],
+                                                                [7, -1749.15792945597],
+                                                                [8, -690.976433720612],
+                                                                [9, -279.172776503217],
+                                                                [10, 799.344822737186],
+                                                                [11, -88.6913888164294],
+                                                                [12, -311.507783255615]]
+                                                       
+                                                    },
+                                                    {
+                                                        key: "2012",
+                                                        mean: 125,
+                                                        values: [[1, 178.498247612719],
+                                                                [2, -132.023426173882],
+                                                                [3, -1811.62711529967],
+                                                                [4, 5776.65838021718],
+                                                                [5, -13857.1428571429],
+                                                                [6, -376.060683980461],
+                                                                [7, 550.923168552709],
+                                                                [8, -13.847579111613],
+                                                                [9, -117.260250818492],
+                                                                [10, -310.876216968011],
+                                                                [11, 4632.65306122456],
+                                                                [12, -2494.30740037951]]
+                                                    },
+                                                    {
+                                                        key: "2013",
+                                                        values: [ [1, -1650.56818181818],
+                                                                    [2, 1312.74044770483],
+                                                                    [3, -2812.60647359455],
+                                                                    [4, 1571.63862114034],
+                                                                    [5, 374.343557822759],
+                                                                    [6, 4826.66044122798],
+                                                                    [7, -199.273022024651],
+                                                                    [8, -2625.47408025913],
+                                                                    [9, 2780.0035412855],
+                                                                    [10, 1822.92131948883],
+                                                                    [11, 420.056506791037],
+                                                                    [12, 2104.6161913225] ]
+                                                        
+                                                    },
+
+                                                    {
+                                                        key: "2014",
+                                                        values: [ [1, 3370.10556032892],
+                                                                [2, 190.437865703745],
+                                                                [3, -828.547327614089],
+                                                                [4, 1502.61264793669],
+                                                                [5, -2069.34384201158],
+                                                                [6, -536.255736763851],
+                                                                [7, 2.01564335894658],
+                                                                [8, 1115.88741019903],
+                                                                [9, 2203.81398884938],
+                                                                [10, 1632.59689768809],
+                                                                [11, -2644.21867058783],
+                                                                [12, -173.722316550817]]
+                                                    }
+                                                ];<br>
+                                            }<br>
+                                            <br>
+
+                                         </code>       
+
+
+                              
+                        </div>
+                    </div>
+                </div>
+
+                   <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i>D3 Code For Histogram</h3>
+                        </div>
+                        <div class="panel-body">
+                            
+                                        <code> <br> nv.addGraph(function() { <br>
+                                                    var chart = nv.models.discreteBarChart() <br>
+                                                        .x(function(d) { return d.label }) <br>
+                                                        .y(function(d) { return d.value }) <br>
+                                                        .staggerLabels(true) <br>
+                                                        .staggerLabels(historicalBarChart[0].values.length > 8) <br>
+                                                        .showValues(true) <br>
+                                                        .duration(250); <br>
+                                                         <br>
+                                                         chart.yAxis.tickFormat(d3.format(',.2f')); <br>
+                                                    d3.select('#chart2 svg') <br>
+                                                        .datum(historicalBarChart) <br>
+                                                        .call(chart); <br>
+                                                                         <br>
+                                                    nv.utils.windowResize(chart.update); <br>
+                                                    return chart; <br>
+                                                }); <br>
+                                                 <br>
+
+
+                                           
+                                                historicalBarChart = [ <br>
+                                                    {
+                                                        key: "Cumulative Return",
+                                                        values: [
+                                                            {
+                                                                "label" : "2005" ,
+                                                                "value" : 12.95
+                                                            } ,
+                                                            {
+                                                                "label" : "2006" ,
+                                                                "value" : 40.81
+                                                            } ,
+                                                            {
+                                                                "label" : "2007" ,
+                                                                "value" : 85.21
+
+                                                            } ,
+                                                            {
+                                                                "label" : "2008" ,
+                                                                "value" :34.51
+                                                            } ,
+                                                            {
+                                                                "label" : "2009" ,
+                                                                "value" : -74.73
+
+                                                            } ,
+                                                            {
+                                                                "label" : "2010" ,
+                                                                "value" :  -65.00
+
+                                                            } ,
+                                                            {
+                                                                "label" : "2011" ,
+                                                                "value" : -460.62
+
+                                                            } ,
+                                                            {
+                                                                "label" : "2012" ,
+                                                                "value" :  118.32
+
+
+                                                            },
+                                                            {
+                                                                "label" : "2013" ,
+                                                                "value" : -1696.52
+
+
+                                                            },
+                                                            {
+                                                                "label" : "2014" ,
+                                                                "value" : -711.96
+
+                                                            }
+
+                                                        ]
+                                                    }
+                                                ]; <br> <br>
+
+                                              
+
+
+                                         </code>       
+
+
+                              
+                        </div>
+                    </div>
+                </div> 
+
+
+
+
+            <div class="row">
+                 <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i>Bootstrap</h3>
+                            </div>
+                            <div class="panel-body">
+                                <a href="http://startbootstrap.com/template-overviews/sb-admin/">Bootstrap Web Dashboard Template</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+            
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="static/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="static/js/bootstrap.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="static/js/plugins/morris/raphael.min.js"></script>
+    <script src="static/js/plugins/morris/morris.min.js"></script>
+    <script src="static/js/plugins/morris/morris-data.js"></script>
+
+</body>
+
+</html>

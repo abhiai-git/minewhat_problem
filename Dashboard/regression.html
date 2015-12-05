@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="../build/nv.d3.css" rel="stylesheet" type="text/css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
+        <script src="../build/nv.d3.js"></script>
+        <script src="lib/stream_layers.js"></script>
+        <style>
+            
+           
+        
+            svg
+            {
+                display: block;
+                float: left;
+                height: 350px !important;
+                width: 350px !important;
+            }
+        
+           
+            .nvd3.nv-pie.nv-chart-donut2 .nv-pie-title
+            {
+                fill: gray;
+            }
+        
+            .nvd3.nv-pie.nv-chart-donut1 .nv-pie-title
+            {
+                opacity: 0.4;
+                fill: green;
+            }
+        </style>
+
+    <style>
+        text {
+            font: 12px sans-serif;
+        }
+        svg {
+            display: block;
+            width: 100%;
+        }
+        html, body, #chart1, svg {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+    <title>ABHISHEK BHARDWAJ</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="static/css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="static/css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Abhishek Bhardwaj</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="static/Egorov.jpg" class="img-rounded" alt="Egorov" width="col-xs-36" height="26"> Egorov, Kirill  <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Hi , Egorov, Kirill  </a>
+                        </li>                        
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                   <li class="active">
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Problem & Solution</a>
+                    </li>
+                    <li>
+                        <a href="regression.html"><i class="fa fa-fw fa-bar-chart-o"></i> Regression Analysis</a>
+                    </li>
+                    <li>
+                        <a href="code.html"><i class="fa fa-fw fa-edit"></i> Code</a>
+                    </li>
+                    <li>
+                        <a href="about.html"><i class="fa fa-fw  fa-align-justify"></i> About Me</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Statistical Test <small>Overview</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Regression
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-12 col-md-4">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-comments fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-left">
+                                        <div class="huge">Linear Regression & Correlation Test </div>
+                                        <div>
+                                        In this tab I am analyzing linear regression and correlation test to establish  a relationship between history of USD 3 month LIBOR and history of 10 year Treasury yield curve rate . Linear Regression  is an approach for modeling the relationship between a scalar dependent variable y and one or more explanatory variables where as correlation test is used to find out how two variables are related to each other.
+                                        </div>
+                                 </div>
+                                </div>
+                            </div>
+                            <a href="">
+                                <div class="panel-footer">
+                                    <span class="pull-left"></span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+       
+
+                    
+                </div>    
+
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Linear Regression </h3>
+                                    </div>
+                                    <div class="panel-body" style="max-height: 30;">
+
+                                       <div class="col-lg-5">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Mathematics </h3>
+                                    </div>
+                                    <div class="panel-body" style="max-height: 30;">  
+                                    Relationship that has been considered :-
+                                    <strong>
+                                        
+                                        <br>H = History of 10 year Treasury yield curve rate
+                                        <br>L = History of USD 3 month LIBOR
+                                        <br>H = β*L + α
+                                        <br>β(Beta)= Coefficent of L
+                                        <br> α = Intercept
+                                        <br><br>
+                                        <p class="text-center">
+                                        <br>After performing  Linear Regression over the entire Data,following Equation is obtained:-
+                                        <br>
+                                        <br>H = 43.52*L + 101.27
+                                        <br><br><br><br>
+                                        </p>
+                                    </strong>
+
+                                    </div>
+                                    </div>
+                               </div>
+
+                         <div class="col-lg-7">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Scatter Plot </h3>
+                                    </div>
+                                    <img src="static/scatterplot.png" class="img-rounded" alt="Density" width="col-xs-804" height="336">
+                                                                       
+                                </div>
+                          </div>
+
+
+                                    </div>
+                                    </div>
+                               </div>
+                            </div>
+
+                              <div class="col-lg-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Correlation Test</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                      
+                                             A correlation coefficient shows the degree of linear dependence of x and y. In other words, the coefficient shows how close two variables lie along a line.
+
+If the coefficient is equal to 1 or -1, all the points lie along a line. If the correlation coefficient is equal to zero, there is no linear relation between x and y. however, this does not necessarily mean that there is no relation at all between the two variables. There could e.g. be a non-linear relation.
+
+A positive relationship means that the two variables move into the same direction. A higher value of x corresponds to higher values of y, and vice versa. <strong>Here the correlation coefficietn between between history of USD 3 month LIBOR and history of 10 year Treasury yield curve rate is .849 , which means very high correlation meaning higher value of USD 3 month LIBOR corresponds to higher values of reasury yield curve rate or vice versa.</strong>        <br><br><br><br><br>                             </div>
+                                </div>
+                            </div>
+                        <div class="col-lg-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title"><i class="fa fa-chart-o fa-fw"></i>Time is Running</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                      <svg id="test1" class="mypiechart"></svg>
+                                                                             </div>
+                                </div>
+                            </div>
+
+
+                       </div>
+              
+                
+            </div>
+
+            
+        </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+
+    <script src="static/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="static/js/bootstrap.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="static/js/plugins/morris/raphael.min.js"></script>
+    <script src="static/js/plugins/morris/morris.min.js"></script>
+    <script src="static/js/plugins/morris/morris-data.js"></script>
+ <script>
+
+        var testdata1 = [
+        { key: "Updated", y: 0 },
+        { key: "Pending", y: 100 }
+    ];
+
+        var arcRadius1 = [
+        { inner: 0.6, outer: 1 },
+        { inner: 0.65, outer: 0.95 }
+    ];
+
+        var colors = ["green", "gray"];
+
+       
+        var height = 350;
+        var width = 350;
+
+        nv.addGraph(function () {
+            var chart = nv.models.pieChart()
+            .x(function (d) { return d.key })
+            .y(function (d) { return d.y })
+            .donut(true)
+            .showLabels(false)
+            .color(colors)
+            .width(width)
+            .height(height)
+            .growOnHover(false)
+            .arcsRadius(arcRadius1)
+            .id('donut1'); // allow custom CSS for this one svg
+
+            chart.title("0s");
+
+            d3.select("#test1")
+            .datum(testdata1)
+            .transition().duration(1200)
+            .attr('width', width)
+            .attr('height', height)
+            .call(chart);
+
+            // update chart data values randomly
+            setInterval(function () {
+                if (testdata1[0].y < 60) {
+                    testdata1[0].y = testdata1[0].y + 1;
+                    testdata1[1].y = testdata1[1].y - 1;
+                }
+                else {
+                    testdata1[0].y = 0;
+                    testdata1[1].y = 60;
+                }
+                
+                chart.title(testdata1[0].y + "s");
+                chart.update();
+            }, 1000);
+
+            return chart;
+
+        });
+
+    </script>
+
+ </head>
+
+</body>
+
+</html>
